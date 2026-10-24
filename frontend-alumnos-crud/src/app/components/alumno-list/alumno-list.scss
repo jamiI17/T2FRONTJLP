@@ -1,0 +1,112 @@
+
+.contenedor {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  color: #1f2937;
+}
+
+.encabezado {
+  margin-bottom: 24px;
+
+  h1 {
+    margin-bottom: 8px;
+    font-size: 28px;
+  }
+
+  p {
+    color: #6b7280;
+  }
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+th {
+  background: #f3f4f6;
+  font-size: 13px;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+.boton {
+  border: 0;
+  border-radius: 6px;
+  padding: 9px 13px;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.boton-eliminar {
+  color: white;
+  background: #dc2626;
+}
+
+.boton-secundario {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.estado-academico {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.regular {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.riesgo {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.alerta {
+  margin: 16px 0;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.exito {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.estado {
+  padding: 20px 0;
+  color: #6b7280;
+}

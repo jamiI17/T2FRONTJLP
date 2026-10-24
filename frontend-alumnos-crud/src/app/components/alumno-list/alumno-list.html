@@ -1,0 +1,73 @@
+
+<div class="contenedor">
+  <header class="encabezado">
+    <h1>Gestión de alumnos</h1>
+    <p>Consulta y administra los alumnos registrados.</p>
+  </header>
+
+  @if (cargando) {
+    <p class="estado">Cargando alumnos...</p>
+  }
+
+  @if (error) {
+    <div class="alerta error" role="alert">{{ error }}</div>
+    <button class="boton boton-secundario" (click)="listarAlumnos()">
+      Reintentar
+    </button>
+  }
+
+  @if (mensaje) {
+    <div class="alerta exito" role="status">{{ mensaje }}</div>
+  }
+
+  @if (!cargando && !error && alumnos.length === 0) {
+    <p class="estado">No hay alumnos registrados.</p>
+  }
+
+  @if (alumnos.length > 0) {
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombres</th>
+            <th>Carrera</th>
+            <th>Ciclo</th>
+            <th>Promedio</th>
+            <th>Estado académico</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (alumno of alumnos; track alumno.id) {
+            <tr>
+              <td>{{ alumno.id }}</td>
+              <td>{{ alumno.nombres }}</td>
+              <td>{{ alumno.carrera }}</td>
+              <td>{{ alumno.ciclo }}</td>
+              <td>{{ alumno.promedio }}</td>
+              <td>
+                <span
+                  class="estado-academico"
+                  [class.regular]="alumno.estadoAcademico === 'REGULAR'"
+                  [class.riesgo]="alumno.estadoAcademico === 'EN RIESGO'"
+                >
+                  {{ alumno.estadoAcademico }}
+                </span>
+              </td>
+              <td>
+                <button
+                  class="boton boton-eliminar"
+                  [disabled]="eliminandoId === alumno.id"
+                  (click)="eliminarAlumno(alumno)"
+                >
+                  {{ eliminandoId === alumno.id ? 'Eliminando...' : 'Eliminar' }}
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>
